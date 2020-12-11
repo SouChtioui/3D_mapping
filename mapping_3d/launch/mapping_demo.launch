@@ -1,0 +1,11 @@
+<launch>
+  <arg name="localization"  default="false"/>
+  <!-- world launch file -->
+  <include file="$(find turtlebot_gazebo)/launch/includes/turtlebot_house.launch.xml"/>
+  <!-- rtabmap launch file -->
+  <include file="$(find mapping_3d)/launch/includes/rtabmap.launch.xml">
+    <arg name="localization"  value="$(arg localization)"/>
+  </include>
+  <!-- rviz launch file -->
+  <include file="$(find mapping_3d)/launch/includes/rviz.launch.xml"/>
+</launch>
